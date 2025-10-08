@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pebisnis Ulung - Best Business Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #FF4F81;
+            --secondary: #0b1739;
+            --accent: #FF8A00;
+            --text-primary: #1E1E1E;
+            --text-secondary: #6C6C6C;
+            --bg-light: #FFFFFF;
+            --gradient-bg: linear-gradient(180deg, #FFF5F8, #FFFFFF);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 60px;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .navbar-brand .red-text {
+            color: #FF4F81;
+        }
+
+        .navbar-brand .black-text {
+            color: #1E1E1E;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn-talk {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-talk:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(180deg, #FFF5F8, #FFFFFF);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge-award {
+            background: #FFF4E6;
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .hero-title .blue-text {
+            color: #4E6FFF;
+        }
+
+        .hero-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .btn-get-started {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            margin-right: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-get-started:hover {
+            background: #e63d6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,79,129,0.3);
+        }
+
+        .btn-watch {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: 20px;
+            margin: 0 auto;
+        }
+
+        .rating-card {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 16px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .rating-card .rating {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Partners */
+        .partners-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .partner-logo {
+            opacity: 0.4;
+            filter: grayscale(100%);
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            opacity: 0.7;
+            filter: grayscale(0%);
+        }
+
+        /* Capabilities */
+        .capabilities-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .capability-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .capability-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .capability-card p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Why Choose Us */
+        .why-choose-section {
+            background: var(--secondary);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .why-choose-section .section-label {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .why-choose-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .why-choose-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-choose-section ul li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .why-choose-section ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .why-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #2a3a5a, #1a2a4a);
+            border-radius: 20px;
+        }
+
+        /* Projects */
+        .projects-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .project-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+        }
+
+        .project-content {
+            padding: 24px;
+        }
+
+        .project-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background: #FAFAFA;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quote-icon {
+            color: var(--primary);
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+        }
+
+        .author-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Contact */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #FFF5F8, #FFFFFF);
+        }
+
+        .contact-section .section-label {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .contact-image-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border-radius: 20px;
+        }
+
+        .form-control {
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid #E0E0E0;
+            margin-bottom: 20px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(255,79,129,0.15);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+        }
+
+        .btn-send {
+            background: var(--primary);
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-send:hover {
+            background: #e63d6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,79,129,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0;
+        }
+
+        footer .logo {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        footer .logo .red-text {
+            color: var(--primary);
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .navbar {
+                padding: 15px 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-title {
+                font-size: 32px;
+                text-align: center;
+            }
+
+            .hero-description {
+                text-align: center;
+                margin: 0 auto 32px;
+            }
+
+            .hero-section {
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .why-choose-section h2,
+            .contact-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="red-text">PEBISNIS</span> <span class="black-text">ULUNG.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#company">Company</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <button class="btn btn-talk ms-lg-3">Let's Talk</button>
+        </div>
+    </nav>
+
+    <!--    Section -->
+    <section class="hero-section" style="margin-top: 70px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="badge-award">
+                        🏆 Best Business Platform - World Record 2021
+                    </div>
+                    <h1 class="hero-title">
+                        Reach Your <span class="blue-text">Business</span> Goals in Record Time
+                    </h1>
+                    <p class="hero-description">
+                        Support small business and join the nationwide movement to encourage commercial support for the millions of minority owned businesses fueling world economy.
+                    </p>
+                    <button class="btn btn-get-started">Get Started</button>
+                    <button class="btn-watch">
+                        <i class="bi bi-play-circle"></i> Watch Video
+                    </button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container">
+                        <div class="hero-image-placeholder"></div>
+                        <div class="rating-card">
+                            <div class="rating">4.9 ⭐</div>
+                            <small>6k+ users</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="row justify-content-center align-items-center g-5">
+                <div class="col-6 col-md-3 text-center">
+                    <div class="partner-logo mx-auto" style="background: #ddd; width: 120px; height: 40px; border-radius: 4px;"></div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="partner-logo mx-auto" style="background: #ddd; width: 120px; height: 40px; border-radius: 4px;"></div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="partner-logo mx-auto" style="background: #ddd; width: 120px; height: 40px; border-radius: 4px;"></div>
+                </div>
+                <div class="col-6 col-md-3 text-center">
+                    <div class="partner-logo mx-auto" style="background: #ddd; width: 120px; height: 40px; border-radius: 4px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="capabilities-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Capabilities</h2>
+            <p class="section-subtitle">
+                We will bring the breathe of our experience and industry knowledge to help you succeed
+            </p>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="capability-card">
+                        <div class="capability-icon" style="background: #E8EEFF; color: #4E6FFF;">
+                            📊
+                        </div>
+                        <h3>Market Forecast</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed eiusmod.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="capability-card">
+                        <div class="capability-icon" style="background: #E8FFE8; color: #4CAF50;">
+                            💰
+                        </div>
+                        <h3>Fund Raising</h3>
+                        <p>Develop and deploy strategies to ensure business success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="capability-card">
+                        <div class="capability-icon" style="background: #FFE8F5; color: #FF4F81;">
+                            💳
+                        </div>
+                        <h3>Cash Flow</h3>
+                        <p>Review of all accounting operations to promote great value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="why-image-placeholder"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-label">WHY CHOOSE US</div>
+                    <h2>Take on any Challenge of the Digital World</h2>
+                    <ul>
+                        <li>Corporate Financial Advisory</li>
+                        <li>Development of Financial Models</li>
+                        <li>Deal Structuring</li>
+                    </ul>
+                    <button class="btn btn-get-started mt-3">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Selected Works from Us</h2>
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Cosmetic Forecast Marketing</h3>
+                            <p>Business Strategy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Sales Analytic</h3>
+                            <p>Data Analysis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Fashion Store Mobile Apps</h3>
+                            <p>App Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Laura's Clore Branding Identity</h3>
+                            <p>Brand Strategy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>SEO Marketing 4.0</h3>
+                            <p>Digital Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image"></div>
+                        <div class="project-content">
+                            <h3>Financial Planning</h3>
+                            <p>Consulting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" style="color: var(--primary); font-weight: 600;">See More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title mb-5">What Our Customer's Say</h2>
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">
+                    "I would recommend these business advisors for everyone, a solid passionate dedicated team that delivers phenomenal results! That the employee engagement team has created a phenomenal momentum, innovation and growth."
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar"></div>
+                    <div class="author-info">
+                        <h4>Gloria Jessica</h4>
+                        <p>CEO Company</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="contact-image-placeholder"></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-label">CONTACT US</div>
+                    <h2>Let's Collaborate Now!</h2>
+                    <form>
+                        <input type="text" class="form-control" placeholder="Full Name">
+                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="date" class="form-control" placeholder="Date">
+                        <textarea class="form-control" placeholder="Message"></textarea>
+                        <button type="submit" class="btn btn-send">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="logo">
+                        <span class="red-text">PEBISNIS</span> ULUNG.
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <small>© Copyright Pebisnis Ulung. All rights reserved</small><br>
+                    <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="mb-2">Get in Touch</div>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
